@@ -1,10 +1,21 @@
-import zipfile
-
+from Crawler import Crawler
 from Processor import Processor
 
+def test1():
+    crawler = Crawler(types=['block'])
+    crawler.init_dir()
+    crawler.get_keyword()
+    crawler.crawl_images('block')
 
-loc = "input_test\\"
-filename = "stone.jpg"
+    processor = Processor(size=16)
+    processor.init_dir()
+    processor.process('block')
 
-p = Processor(64)
-p.process(filename, loc)
+def clean():
+    crawler = Crawler(types=['block'])
+    crawler.init_dir()
+    processor = Processor(size=16)
+    processor.init_dir()
+
+if(__name__=='__main__'):
+    clean()

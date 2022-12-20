@@ -1,5 +1,5 @@
-input_test/
-output_test/
-sample/
 __pycache__/
+pack/
+raw_images/
+sample/
 test.py
