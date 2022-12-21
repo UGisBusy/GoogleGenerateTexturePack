@@ -1,0 +1,3 @@
+icrawler
+opencv-python
+numpy

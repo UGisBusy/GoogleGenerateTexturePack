@@ -1,9 +1,6 @@
-# pip install icrawler
-import base64
 import shutil
 from icrawler import ImageDownloader
 from icrawler.builtin import GoogleImageCrawler
-from six.moves.urllib.parse import urlparse
 import os
 
 class Crawler:

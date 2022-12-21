@@ -12,7 +12,7 @@ class Processor:
     def init_dir(self):
         if(os.path.exists(self.texture_path)):
             shutil.rmtree(self.texture_path)
-        os.mkdir(self.texture_path)
+        os.makedirs(self.texture_path)
         for type in self.types:
             os.mkdir(f'{self.texture_path}/{type}')
             
