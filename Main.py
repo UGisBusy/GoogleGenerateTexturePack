@@ -1,22 +1,18 @@
-from Crawler import Crawler
+from GoogleCrawler import GoogleCrawler
 from Processor import Processor
 
 def test1():
-    crawler = Crawler(types=['block'])
-    crawler.init_dir()
-    processor = Processor(size=128)
-    processor.init_dir()
+    crawler = GoogleCrawler()
+    processor = Processor()
     
-    crawler.get_keyword()
-    crawler.crawl_images('block')
-
-    processor.process('block')
+    crawler.crawl_all()
+    processor.process_all()
 
 def clean():
-    crawler = Crawler(types=['block'])
-    crawler.init_dir()
-    processor = Processor(size=128)
-    processor.init_dir()
-
+    crawler = GoogleCrawler()
+    processor = Processor()
+    crawler.clean_raw_images_path()
+    processor.clean_buffer_path()
+    
 if(__name__=='__main__'):
     test1()
