@@ -41,7 +41,7 @@ class Crawler:
 # change the downloader to accept the keyword
 class CustomDownloader(ImageDownloader):
     def get_filename(self, task, default_ext, keyword):
-        return f'{keyword.replace(" ", "_")}.{default_ext}'
+        return f'{keyword.replace(" ", "_")}.png'
 
     def keep_file(self, task, response, min_size=None, max_size=None, **kwargs):
         # normally, this will comapre the size of the image with min_size and max_size,
@@ -117,3 +117,4 @@ class CustomGoogleImageCrawler(GoogleImageCrawler):
             overwrite=overwrite)
         super(GoogleImageCrawler, self).crawl(
             feeder_kwargs=feeder_kwargs, downloader_kwargs=downloader_kwargs)
+

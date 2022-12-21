@@ -18,13 +18,6 @@ class Processor:
             
 
     def process(self, type):
-        '''
-        :desc:
-            Take a image in input_test floder and make a texturepack-format image floder.
-        :para:
-            name:  filename. eg. 'dirt.png'
-            loc: location of the file. eg. "input_test\\"
-        '''
         #cv.IMREAD_COLOR : BGR layer
         #cv.IMREAD_UNCHANGED : BGR layer + alpha
         input_path = f'raw_images/{type}'
