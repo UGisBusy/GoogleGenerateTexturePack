@@ -43,6 +43,7 @@ class Crawler:
     def crawl_images(self, type):
         # crawl images of certain type, need to be overloaded 
         print('NO DERIVED CLASS TO OVERLOAD THIS')
+        raise NotImplementedError
     
 
     def crawl_all(self):

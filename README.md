@@ -4,11 +4,16 @@
 * https://www.reddit.com/comments/cexwni
 * https://www.planetminecraft.com/texture-pack/google-images/
 
-#### Basically doing the same thing but with some more features!
+#### Basically doing the same thing but with more features!
 
 ****
-## File Structure
+## Structure
 
 * Crawler
+    * BeautifulCrawler
+    * CustomSearchCrawler
+    * ICrawler
 * Processor
 * Main
+
+use iCrawler from: https://icrawler.readthedocs.io/en/latest/

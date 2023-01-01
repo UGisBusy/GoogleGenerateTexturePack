@@ -1,19 +1,26 @@
 from icrawler import ImageDownloader
 from icrawler.builtin import GoogleImageCrawler
+import logging
 from Crawler import Crawler
 
-class GoogleCrawler(Crawler):
+class ICrawler(Crawler):
     
+    def __init__(self, types=['block'], source='google', raw_images_path='raw_images', logger_level=logging.ERROR):
+        self.logger_level = logger_level
+        super().__init__(types, source, raw_images_path)
+        
     def crawl_images(self, type):
         # crawl images of certain type 
         floder = f'{self.raw_images_path}/{type}'
-        crawler = CustomGoogleImageCrawler(storage={'root_dir': floder}, downloader_cls=CustomDownloader)
+        crawler = CustomGoogleImageCrawler(storage={'root_dir': floder}, downloader_cls=CustomImageDownloader)
+        for name in logging.root.manager.loggerDict:
+            logging.getLogger(name).setLevel(self.logger_level)
         for k in self.keyword_dict[type]:
             crawler.crawl(keyword=k, max_num=1)
             
 
 # change the downloader to accept the keyword
-class CustomDownloader(ImageDownloader):
+class CustomImageDownloader(ImageDownloader):
     def get_filename(self, task, default_ext, keyword):
         return f'{keyword.replace(" ", "_")}.png'
 
