@@ -5,21 +5,20 @@ import cv2 as cv
 import zipfile
 
 class Processor:
-    def __init__(self, resultion=128, types=['block'], pack_name='hell', raw_images_path='raw_images' ,buffer_path='buffer', result_path='result'):
+    def __init__(self, resolution=128, types=['block'], pack_name='hell', raw_images_path='raw_images' ,buffer_path='buffer', result_path='result'):
         '''
-        resultion:          the resultion of the image
+        resolution:          the resolution of the image
         types:              types we want to be included in the pack
         raw_images_path:    the path of the raw images crawled
         buffer_path:        the path of the processed images
         result_path:        the path of the compressed texture pack
         '''
-        self.resultion = resultion
+        self.resolution = resolution
         self.names_path = 'names'
         self.raw_images_path = raw_images_path
         self.pack_name = pack_name
         self.buffer_path = buffer_path
         self.result_path = result_path
-        self.buffer_path = 'pack/assets/minecraft/textures'
         self.types = types
 
 
@@ -43,7 +42,7 @@ class Processor:
         for file in os.listdir(raw_images_floder):
             input_img = cv.imread(f'{raw_images_floder}/{file}',cv.IMREAD_COLOR)
             try:
-                img = cv.resize(input_img, (self.resultion, self.resultion))
+                img = cv.resize(input_img, (self.resolution, self.resolution))
             except:
                 print(f'{raw_images_floder}/{file} broken, skip process it')
             cv.imwrite(f'{buffer_floder}/{file}',img)
@@ -65,7 +64,6 @@ class Processor:
                         zf.write(f'{mcmeta_floder}/{file}', f'assets/minecraft/textures/{type}/{file}')
             zf.write(f'{self.names_path}/pack.mcmeta', 'pack.mcmeta')
         
-    
 
     def process_all(self):
         # do everything
@@ -73,4 +71,3 @@ class Processor:
         for type in self.types:
             self.img_process(type)
         self.output_pack()
-        

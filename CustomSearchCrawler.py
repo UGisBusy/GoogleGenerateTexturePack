@@ -3,8 +3,8 @@ import urllib.request
 from Crawler import Crawler
 
 class CustomSearchCrawler(Crawler):
-    __api_key = 'YOUR API KEY'
-    __engine_id = 'YOUR ENGINE ID'
+    __api_key = 'AIzaSyDT7kPoEBme2jbLXpZMMcA4aNbaUuYf-ys'
+    __engine_id = 'd1bb20ee394254ee7'
 
     def crawl_images(self, type):
         for k in self.keyword_dict[type]:
